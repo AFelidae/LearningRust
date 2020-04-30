@@ -2,9 +2,27 @@ use std::io;
 use std::io::prelude::*;
 
 fn main() {
-    letter_count();
+    //letter_count();
     //hello_world();
+    sum();
 }
+
+fn sum(){
+    let mut total: i32 = 0;
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let some_string = line.unwrap();
+        match some_string.parse::<i32>() {
+            Ok(n) => {
+                total += n;
+                println!("Your total is {}", total);
+            },
+            Err(e) => println!("Enter a heccing integer >:C"),
+          } 
+    }
+}
+
+
 
 fn letter_count(){
     let stdin = io::stdin();
