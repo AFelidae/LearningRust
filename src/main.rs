@@ -8,13 +8,35 @@ fn main() {
     //letter_count();
     //hello_world();
     //sum();
-    random_wall();
+    //random_wall();
+    guess_the_number();
+}
+
+fn guess_the_number(){
+    let secret_number: u8 = rand::random();
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let input = line.unwrap();
+        match input.parse::<u8>() {
+            Ok(n) => {
+                if secret_number < n {
+                    println!("Too high!");
+                } else if secret_number > n {
+                    println!("Too low!");
+                } else {
+                    println!("Nailed it!");
+                    break;
+                }
+            },
+            Err(e) => println!("Enter a guess"),
+        } 
+    }
 }
 
 fn random_wall(){
-    for y in 0..20{
+    for _y in 0..20{
         let mut layer: String = String::from("");
-        for x in 0..20{
+        for _x in 0..20{
             if rand::random() {
                 layer += "1";
             } else {
@@ -36,7 +58,7 @@ fn sum(){
                 println!("Your total is {}", total);
             },
             Err(e) => println!("Enter a heccing integer >:C"),
-          } 
+        } 
     }
 }
 
