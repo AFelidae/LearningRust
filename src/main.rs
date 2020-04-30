@@ -1,10 +1,28 @@
 use std::io;
 use std::io::prelude::*;
 
+extern crate rand;
+use rand::Rng;
+
 fn main() {
     //letter_count();
     //hello_world();
-    sum();
+    //sum();
+    random_wall();
+}
+
+fn random_wall(){
+    for y in 0..20{
+        let mut layer: String = String::from("");
+        for x in 0..20{
+            if rand::random() {
+                layer += "1";
+            } else {
+                layer += "0";
+            }
+        }
+        println!("{}", layer)
+    }
 }
 
 fn sum(){
