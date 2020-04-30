@@ -1,5 +1,19 @@
+use std::io;
+use std::io::prelude::*;
+
 fn main() {
-    hello_world();
+    letter_count();
+    //hello_world();
+}
+
+fn letter_count(){
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() { //Im sure theres a nicer way of taking input
+        let some_string = line.unwrap();
+        println!("{}", some_string);
+        println!("Is {} letters long", some_string.len());
+        break;
+    }
 }
 
 fn hello_world(){ //Fancy hello world function
