@@ -9,7 +9,14 @@ fn main() {
     //hello_world();
     //sum();
     //random_wall();
-    guess_the_number();
+    //guess_the_number();
+}
+
+fn iterate_ray(){
+    let notes = ["do","re","mi","fa","so","la","ti","do"];
+    for note in notes.iter(){
+        println!("{}", note);
+    }
 }
 
 fn guess_the_number(){
