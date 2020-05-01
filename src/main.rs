@@ -10,6 +10,24 @@ fn main() {
     //sum();
     //random_wall();
     //guess_the_number();
+    sum_everything();
+}
+
+fn sum_everything(){
+    let mut sum: i16 = 0;
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {    
+        let input = line.unwrap();
+        for num in input.split_whitespace() {
+            match num.parse::<i16>(){
+                Ok(n) => {
+                    sum += n;
+                },
+                Err(_n) => {}
+            }
+        }
+        println!("{}", sum);
+    }
 }
 
 fn iterate_ray(){
@@ -35,7 +53,7 @@ fn guess_the_number(){
                     break;
                 }
             },
-            Err(e) => println!("Enter a guess"),
+            Err(_e) => println!("Enter a guess"),
         } 
     }
 }
